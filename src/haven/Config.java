@@ -590,6 +590,9 @@ public class Config {
         }
         Resource.checkhide();
         timestamp = options.getProperty("timestamp","false").equals("true");
+        hide = options.getProperty("hide","false").equals("true");
+        grid = options.getProperty("grid","false").equals("true");
+        nightvision = options.getProperty("nightvision","false").equals("true");
     }
 
     public static synchronized void setWindowOpt(String key, String value) {
@@ -672,6 +675,9 @@ public class Config {
         options.setProperty("hearthred", hearthred?"true":"false");
         options.setProperty("showViewDistance", showViewDistance?"true":"false");
         options.setProperty("version", currentVersion);
+        options.setProperty("hide",hide?"true":"false");
+        options.setProperty("grid",grid?"true":"false");
+        options.setProperty("nightvision",nightvision?"true":"false");
         
         try {
             options.store(new FileOutputStream("haven.conf"), "Custom config options");
